@@ -103,7 +103,11 @@ class FlytePickleTransformer(TypeTransformer[FlytePickle]):
 
         if python_type == typing.Any:
             # Only Any type data could be created in local, other types should be stored in remote.
-            if not ctx.file_access.is_remote(remote_path) and hasattr(python_val, "remote_path") and python_val.remote_path is not False:
+            if (
+                not ctx.file_access.is_remote(remote_path)
+                and hasattr(python_val, "remote_path")
+                and python_val.remote_path is not False
+            ):
                 # If ctx.file_access.is_remote(remote_path) is True, it means that the entity is running in a remote environment, so we should not upload the file.
                 # If the remote_path is False, it means that the entity is not running in a remote environment, so we should not upload the file.
                 remote_path = ctx.file_access.put_raw_data(python_val)
