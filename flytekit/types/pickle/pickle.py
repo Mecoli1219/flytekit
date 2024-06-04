@@ -100,6 +100,18 @@ class FlytePickleTransformer(TypeTransformer[FlytePickle]):
             )
         )
         remote_path = FlytePickle.to_pickle(python_val)
+
+        if python_type == typing.Any:
+            # Only Any type data could be created in local, other types should be stored in remote.
+            if not ctx.file_access.is_remote(remote_path) and hasattr(python_val, "remote_path") and python_val.remote_path is not False:
+                # If ctx.file_access.is_remote(remote_path) is True, it means that the entity is running in a remote environment, so we should not upload the file.
+                # If the remote_path is False, it means that the entity is not running in a remote environment, so we should not upload the file.
+                remote_path = ctx.file_access.put_raw_data(python_val)
+
+            elif hasattr(python_val, "remote_path") and python_val.remote_path is False:
+                # the entity in running in a local environment, so we should not upload the file.``
+                remote_path = ctx.file_access.put_raw_data(python_val)
+
         return Literal(scalar=Scalar(blob=Blob(metadata=meta, uri=remote_path)))
 
     def guess_python_type(self, literal_type: LiteralType) -> typing.Type[FlytePickle[typing.Any]]:
