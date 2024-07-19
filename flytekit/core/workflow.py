@@ -21,6 +21,7 @@ from flytekit.core.context_manager import (
     FlyteEntities,
 )
 from flytekit.core.docstring import Docstring
+from flytekit.core.future import FlyteFuture
 from flytekit.core.interface import (
     Interface,
     transform_function_to_interface,
@@ -295,6 +296,9 @@ class WorkflowBase(object):
 
     def execute(self, **kwargs):
         raise Exception("Should not be called")
+    
+    def remote(self, **kwargs) -> FlyteFuture:
+        return FlyteFuture(self, **kwargs)
 
     def compile(self, **kwargs):
         pass
