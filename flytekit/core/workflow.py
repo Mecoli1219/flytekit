@@ -296,7 +296,7 @@ class WorkflowBase(object):
 
     def execute(self, **kwargs):
         raise Exception("Should not be called")
-    
+
     def remote(self, **kwargs) -> FlyteFuture:
         return FlyteFuture(self, **kwargs)
 
