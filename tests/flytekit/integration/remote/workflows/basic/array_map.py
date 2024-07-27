@@ -12,3 +12,5 @@ def fn(x: int, y: int) -> int:
 def workflow_with_maptask(data: list[int], y: int) -> list[int]:
     partial_fn = partial(fn, y=y)
     return map_task(partial_fn)(x=data)
+
+map_fn = map_task(fn)
