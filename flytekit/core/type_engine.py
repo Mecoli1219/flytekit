@@ -1480,6 +1480,7 @@ class TupleTransformer(TypeTransformer[T]):
                 (
                     f"The expected python type is '{expected_python_type}' but the received Flyte literal value "
                     f"is not a tuple."
+                    f"Got {lv}"
                 )
             )
         if is_namedtuple(expected_python_type):
