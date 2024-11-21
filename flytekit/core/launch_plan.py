@@ -175,6 +175,7 @@ class LaunchPlan(object):
         lp = cls(
             name=name,
             workflow=workflow,
+            python_interface=temp_interface,
             parameters=wf_signature_parameters,
             fixed_inputs=fixed_lm,
             schedule=schedule,
@@ -334,6 +335,7 @@ class LaunchPlan(object):
         workflow: _annotated_workflow.WorkflowBase,
         parameters: _interface_models.ParameterMap,
         fixed_inputs: _literal_models.LiteralMap,
+        python_interface: Interface,
         schedule: Optional[_schedule_model.Schedule] = None,
         notifications: Optional[List[_common_models.Notification]] = None,
         labels: Optional[_common_models.Labels] = None,
@@ -349,6 +351,7 @@ class LaunchPlan(object):
         # Ensure fixed inputs are not in parameter map
         parameters = {k: v for k, v in parameters.parameters.items() if k not in fixed_inputs.literals}
         self._parameters = _interface_models.ParameterMap(parameters=parameters)
+        self._python_interface = python_interface
         self._fixed_inputs = fixed_inputs
         # See create() for additional information
         self._saved_inputs: Dict[str, Any] = {}
@@ -402,7 +405,7 @@ class LaunchPlan(object):
 
     @property
     def python_interface(self) -> Interface:
-        return self.workflow.python_interface
+        return self._python_interface if self._python_interface else self.workflow.interface
 
     @property
     def interface(self) -> _interface_models.TypedInterface:
