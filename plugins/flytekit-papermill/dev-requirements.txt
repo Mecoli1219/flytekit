@@ -268,7 +268,7 @@ pyjwt[crypto]==2.8.0
     # via
     #   msal
     #   pyjwt
-pyopenssl==23.3.0
+pyopenssl==24.0.0
     # via flytekit
 pyspark==3.5.0
     # via flytekitplugins-spark
