@@ -1,4 +1,4 @@
-FROM python:3.10-slim-bookworm AS agent-slim
+FROM python:3.14.0a1-slim-bookworm AS agent-slim
 
 LABEL org.opencontainers.image.authors="Flyte Team <users@flyte.org>"
 LABEL org.opencontainers.image.source=https://github.com/flyteorg/flytekit
