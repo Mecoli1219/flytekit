@@ -59,7 +59,7 @@ cloudpickle==3.1.0
     # via flytekit
 croniter==3.0.3
     # via flytekit
-cryptography==43.0.1
+cryptography==44.0.1
     # via
     #   azure-identity
     #   azure-storage-blob
