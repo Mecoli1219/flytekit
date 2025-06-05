@@ -551,7 +551,7 @@ grpcio-status==1.62.3
     #   google-cloud-pubsublite
 gunicorn==23.0.0
     # via apache-airflow
-h11==0.14.0
+h11==0.16.0
     # via httpcore
 hdfs==2.7.3
     # via apache-beam
