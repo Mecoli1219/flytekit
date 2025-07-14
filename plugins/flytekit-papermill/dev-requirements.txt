@@ -240,7 +240,7 @@ pandas==1.5.3
     #   flytekitplugins-spark
 portalocker==2.8.2
     # via msal-extensions
-protobuf==4.24.4
+protobuf==4.25.8
     # via
     #   flyteidl
     #   flytekit
@@ -355,7 +355,7 @@ typing-extensions==4.8.0
     #   typing-inspect
 typing-inspect==0.9.0
     # via dataclasses-json
-urllib3==1.26.18
+urllib3==2.5.0
     # via
     #   botocore
     #   docker
