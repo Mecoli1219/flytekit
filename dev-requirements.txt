@@ -392,7 +392,7 @@ proto-plus==1.23.0
     # via
     #   google-api-core
     #   google-cloud-bigquery-storage
-protobuf==4.25.3
+protobuf==4.25.8
     # via
     #   -r dev-requirements.in
     #   flyteidl
