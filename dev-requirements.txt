@@ -34,7 +34,7 @@ attrs==23.2.0
     #   visions
 autoflake==2.3.1
     # via -r dev-requirements.in
-azure-core==1.30.1
+azure-core==1.38.0
     # via
     #   adlfs
     #   azure-identity
