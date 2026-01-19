@@ -31,7 +31,7 @@ async-timeout==4.0.3
     # via aiohttp
 attrs==23.1.0
     # via aiohttp
-azure-core==1.29.5
+azure-core==1.38.0
     # via
     #   adlfs
     #   azure-identity
@@ -254,7 +254,7 @@ py4j==0.10.9.7
     # via pyspark
 pyarrow==10.0.1
     # via flytekit
-pyasn1==0.5.1
+pyasn1==0.6.2
     # via
     #   pyasn1-modules
     #   rsa
